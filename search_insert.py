@@ -22,6 +22,11 @@ def search_insert(nums, target):
         return r+1
     return l-1
 
+
+
+
+
+
 print (search_insert(nums = [1,3,5,6], target = 5))
 print (search_insert(nums = [1,3,5,6], target = 2))
 print (search_insert(nums = [1,3,5,6], target = 7))

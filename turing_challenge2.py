@@ -4,7 +4,8 @@ from collections import deque
 # a calculator... 
 def solution(seq: str) -> int:
     # write yout solution here
-    result = deque()
+    # result = deque()
+    result = []
     for s in seq:
         if s == 'C': # removes last result
             if len(result) < 1:
@@ -15,14 +16,14 @@ def solution(seq: str) -> int:
                 continue
             x = result.pop()
             y = result.pop()
-            result.append( y )
-            result.append( x )
+            # result.append( y )
+            # result.append( x )
             result.append( x + y )
         elif s == 'D': # double result and stores
             if len(result) < 1:
                 continue
             x = result.pop()
-            result.append ( x )
+            # result.append ( x )
             result.append ( 2 * x )
         else: 
             result.append ( int(s) )

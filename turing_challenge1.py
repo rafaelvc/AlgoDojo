@@ -4,7 +4,7 @@ from typing import List
 # 1 sec == | a - b | going from num[a] to num[b] ix
 def solution(digits: str, num: str) -> int:
     # write yout solution here
-    if len(str) == 0 or len(num) == 0:
+    if len(digits) == 0 or len(num) == 0:
         return 0
     pos_digits = {}
     for i, d in enumerate(digits):

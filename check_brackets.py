@@ -6,11 +6,12 @@ def is_valid(s):
     brack_stack = deque()
     for c in s:
         if c == '{' or c == '[' or c == '(':
-            brack_stack.appendleft(c)
+            # brack_stack.appendleft(c)
+            brack_stack.append(c)
         elif len(brack_stack) == 0:
             return False 
         else:
-            c1 = brack_stack.popleft()
+            c1 = brack_stack.pop()
             if (c == '}' and c1 != '{') or\
                (c == ')' and c1 != '(') or\
                (c == ']' and c1 != '['):
@@ -24,4 +25,16 @@ s = "({{{}{}}})"
 print (is_valid(s))
 
 s = "()[]{}"
+print (is_valid(s))
+
+s = "({{{}{}}}"
+print (is_valid(s))
+
+s = "({{{{}}})"
+print (is_valid(s))
+
+s = "[][]"
+print (is_valid(s))
+
+s = "[][({})]"
 print (is_valid(s))

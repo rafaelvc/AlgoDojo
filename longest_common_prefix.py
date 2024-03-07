@@ -23,3 +23,6 @@ def max_common_prefix(words):
 
 strs = ["cir", "car"]
 print (max_common_prefix(strs))
+
+strs = ["aa", "bb", "cat", "car"]
+print (max_common_prefix(strs))

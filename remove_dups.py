@@ -61,6 +61,7 @@ def remove_dups_at_most(arr):
     prev = 0
     next = 1
     counter = 0
+    k = 0
     while next < len(arr):
         if arr[prev] == arr[next]:
             counter += 1

@@ -21,12 +21,19 @@ def find_diff2(s, t): # S + T => T = S+1 => S + S + 1 => 2S + 1 => 2S => S => O(
             r = t1
     return r
         
-def find_diff(s, t): # O(SLOGS + S)
+def find_diff3(s, t): # O(SLOGS + S)
     s = sorted(s)
     t = sorted(t)
-    for i in range(len(s)-1, -1, -1):
-        if s[i] != t[i+1]:
-            return t[i+1]
+    # for i in range(len(s)-1, -1, -1):
+    #     if s[i] != t[i+1]:
+    #         return t[i+1]
+    for i in range(0, len(s)):
+        if s[i] != t[i]:
+            return t[i]
+    return t[len(t)-1]
+
+
+    print ("--")
     return t[0]
 
 def find_diff(s, t): # S + T + 26 => O(S)
@@ -42,6 +49,8 @@ def find_diff(s, t): # S + T + 26 => O(S)
     return ''
 
 
-print (find_diff(s = "abcd", t = "abcde"))
-print (find_diff(s = "", t = "y"))
-print (find_diff(s = "a", t = "aa"))
+print (find_diff3(s = "abcd", t = "abcde"))
+print (find_diff3(s = "", t = "y"))
+print (find_diff3(s = "a", t = "aa"))
+
+print (find_diff3(s = "aabb", t = "eaabb"))
