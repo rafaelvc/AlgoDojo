@@ -75,7 +75,6 @@ class Solution(object):
             perimeter += 1
         if r == self.rows - 1:
             perimeter += 1
-
         return perimeter + self.check_perimeter(r-1, c)\
                          + self.check_perimeter(r, c+1)\
                          + self.check_perimeter(r, c-1)\

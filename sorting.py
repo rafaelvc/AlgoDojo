@@ -1,5 +1,6 @@
 import random
 import cProfile, pstats
+import time
 # bubles max element to last position
 # bubles second max element to penultimate postiion and so on.
 def buble_sort(arr):
@@ -15,6 +16,18 @@ def buble_sort(arr):
         if not swap:
             return
         i += 1
+
+
+def buble_sort2(nums):
+    borbulha = True
+    n = 0
+    while borbulha: 
+        borbulha = False
+        n += 1
+        for i in range(0,len(nums)-n):
+            if nums[i] > nums[i+1]:
+                nums[i+1], nums[i] = nums[i], nums[i+1] 
+                borbulha = True
 
 # select the first min and place at 1st
 # selects the second min from remaining and place at 2st and so on..
@@ -242,13 +255,12 @@ def quick_sort(array, low, high):
 # arr = [9,4,8,3,7,1,6,2,5]
 # print (quick_sort(arr))
 
-
 # raninput = [ random.randint(0,10) for r in 10000 * [0]  ]
-raninput = [5, 9, 1, 3, 6, 8, 10, 4]
+# raninput = [5, 9, 1, 3, 6, 8, 10, 4]
 # # raninput_sorted = merge_sort(raninput)
 # 
 # 
-profiler = cProfile.Profile()
+# profiler = cProfile.Profile()
 # 
 # profiler.enable()
 # mergeSortGeeksForGeeks(raninput)
@@ -262,12 +274,12 @@ profiler = cProfile.Profile()
 # print (stats.total_tt)
 # profiler.disable()
 # 
-profiler.enable()
-merge_sort(raninput)
-stats = pstats.Stats(profiler).get_stats_profile()
-print (stats.total_tt)
-profiler.disable()
-print (raninput)
+# profiler.enable()
+# merge_sort(raninput)
+# stats = pstats.Stats(profiler).get_stats_profile()
+# print (stats.total_tt)
+# profiler.disable()
+# print (raninput)
 # 
 # # arr = [2,1]
 # profiler.enable()
@@ -299,4 +311,46 @@ print (raninput)
 # # select_sort(arr)
 # #print (arr)
 
+# buble sorts check for 10000
+raninput = [ x for x in range(0,10000) ]
+random.shuffle(raninput)
+raninput1 = raninput.copy()
+print(id(raninput), id(raninput1))
 
+
+
+raninput = [ x for x in range(0,10000000) ]
+random.shuffle(raninput)
+
+start = time.time()
+# buble_sort(raninput)
+n = 0
+while n < 10000000:
+    raninput[n] = n
+    n += 1
+end = time.time()
+print (end-start)
+start = time.time()
+# buble_sort2(raninput1)
+for n in range (0, 10000000):
+    raninput[n] = n
+end = time.time()
+print (end-start)
+# print (raninput)
+# print (raninput1)
+print (raninput == raninput1)
+
+
+
+# profiler = cProfile.Profile()
+# profiler.enable()
+# buble_sort2(raninput)
+# stats = pstats.Stats(profiler).get_stats_profile()
+# print (stats.total_tt)
+# profiler.disable()
+# profiler.enable()
+# buble_sort(raninput1)
+# stats = pstats.Stats(profiler).get_stats_profile()
+# print (stats.total_tt)
+# profiler.disable()
+# 

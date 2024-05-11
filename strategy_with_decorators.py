@@ -66,5 +66,6 @@ class Order():
 
    
 
-# order = Order( [Item('Tennis', 50.0, 2), Item('Tshirt', 25.0, 1)], Promo_10() )
-# print (order)
+order = Order( [Item('Tennis', 50.0, 2), Item('Tshirt', 25.0, 1)], Promo_10() )
+print (order)
+print (order)
