@@ -26,7 +26,7 @@ def traverse_tree_arr( arr, root ):
 def build_tree_from_arr( arr, root ):
     # leaf
     if root >= len(arr) or arr[root] is None:
-        return
+        return 
     left = (root * 2) + 1
     right = left + 1
     left_root = build_tree_from_arr(arr, left)
@@ -55,8 +55,8 @@ def inverse_tree( root ):
 # tree = build_tree_from_arr( root, 0 )
 # traverse_tree(tree)
 
-tree = [4,2,7,1,3,6,9]
-traverse_tree_arr(tree, 0)
+# tree = [4,2,7,1,3,6,9]
+# traverse_tree_arr(tree, 0)
 # #  print ('---')
 # root = build_tree_from_arr(tree, 0)
 # inverse_tree(root)
