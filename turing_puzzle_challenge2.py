@@ -10,7 +10,6 @@ Example: For [10,10,10,3,4,10], result = 4, A fence with 4 planks of length 10. 
 """
 
 from collections import Counter
-from itertools import combinations
 
 """ 
 The idea was to first account number of most common planks of same size, 
@@ -24,31 +23,29 @@ used planks and disconsider pairs of planks were already used.
 """
 
 def max_fence_size(planks_list):
-    most_common = Counter(planks_list).most_common()
-    most_common, counter = most_common[0]
-    used_planks = set()
-    for a in range(0, len(planks_list)): 
-        if planks_list[a] >= most_common:
-            continue
-        for b in range(a+1, len(planks_list)):
-            if planks_list[b] >= most_common:
-                continue
-            if a not in used_planks and b not in used_planks\
-                and (planks_list[a]+planks_list[b]) == most_common:
-                used_planks.add(a)
-                used_planks.add(b)
-                counter += 1
-    return counter
+    most_common_list = Counter(planks_list).most_common()
+    max_plank = 0
+    half_planks = len(planks_list) // 2
+    for most_common, counter in most_common_list:
+        used_planks = set()
+        for a in range(0, len(planks_list)):
+             if planks_list[a] >= most_common:
+                 continue
+             for b in range(a+1, len(planks_list)):
+                 if planks_list[b] >= most_common:
+                     continue
+                 if a not in used_planks and b not in used_planks\
+                     and (planks_list[a]+planks_list[b]) == most_common:
+                     used_planks.add(a)
+                     used_planks.add(b)
+                     counter += 1
+        max_plank = max(max_plank, counter)
+        if max_plank > half_planks: # Possible optimization
+            return counter
+    return max_plank
 
 print (max_fence_size([10,10,10,3,4,10]))
 print (max_fence_size([10,10,10,5,5,10]))
 print (max_fence_size([2,2,1,1,1,10]))
 print (max_fence_size([2,2,1,1,1,2,10]))
-
-
-
-
-
-
-
-
+print (max_fence_size([1,111,111,111,3,4,2,2,4,2,4,3,3,3,3,111,111,6]))
